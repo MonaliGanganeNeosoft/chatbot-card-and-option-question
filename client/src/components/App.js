@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import Landing from "./pages/Landing";
 import About from "./pages/About";
 import Shop from "./Shop/Shop";
@@ -8,17 +8,15 @@ import Chatbot from "./Chatbot/Chatbot";
 function app() {
   return (
     <>
-      <Router>
+      <BrowserRouter>
         <div className="container">
           <Header />
-          <Routes>
-            <Route exact path="/" element={<Landing />} />
-            <Route exact path="/about" element={<About />} />
-            <Route exact path="/shop" element={<Shop />} />
-          </Routes>
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/shop" component={Shop} />
           <Chatbot />
         </div>
-      </Router>
+      </BrowserRouter>
     </>
   );
 }
